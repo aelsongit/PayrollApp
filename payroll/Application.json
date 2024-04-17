@@ -24,14 +24,6 @@
         "sections": [],
         "accessRoles": null,
         "privileges": null
-      },
-      {
-        "name": "Payments Dashboard",
-        "icon": "View",
-        "pageDefinitionId": "43c40b4d-18c5-4a2c-9802-4f257f2e2455",
-        "sections": [],
-        "accessRoles": null,
-        "privileges": null
       }
     ]
   }
