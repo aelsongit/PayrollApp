@@ -1,0 +1,15 @@
+{
+  "description": "Status",
+  "pageDefinitionId": "43c40b4d-18c5-4a2c-9802-4f257f2e2455",
+  "pageSchema": {
+    "properties": {},
+    "controlSchema": {
+      "schema": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  },
+  "title": "Status",
+  "versionName": "1.0"
+}
