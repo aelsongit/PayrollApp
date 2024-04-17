@@ -1,0 +1,15 @@
+{
+  "description": "Payee Commissions",
+  "pageDefinitionId": "ef8a40d9-7e65-482a-956a-75402119102d",
+  "pageSchema": {
+    "properties": {},
+    "controlSchema": {
+      "schema": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  },
+  "title": "Payee Commissions",
+  "versionName": "1.0"
+}
