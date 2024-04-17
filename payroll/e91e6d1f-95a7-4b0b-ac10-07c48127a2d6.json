@@ -1,0 +1,15 @@
+{
+  "description": null,
+  "pageDefinitionId": "e91e6d1f-95a7-4b0b-ac10-07c48127a2d6",
+  "pageSchema": {
+    "properties": {},
+    "controlSchema": {
+      "schema": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  },
+  "title": "Payroll Approval Initiation",
+  "versionName": "1.0"
+}
