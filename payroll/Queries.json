@@ -1,0 +1,216 @@
+[
+  {
+    "variables": [
+      {
+        "name": "var_period",
+        "value": "JUN-2015",
+        "dataType": "String",
+        "queryId": "b011c8bce01cab886034288b43d9e560.ent54863dca20e370bd73c901d16ff8a",
+        "id": "681356389347b83c9c30e98ca5c6644d.entbf6a2450b41b733c0ec6382ce81bc"
+      }
+    ],
+    "savedInEditor": true,
+    "isValid": true,
+    "name": "payroll_approval_kpi_4",
+    "description": null,
+    "id": "b011c8bce01cab886034288b43d9e560.ent54863dca20e370bd73c901d16ff8a",
+    "xsql": "select participant_name||' / '||FormatNumber(total_commission,'#,##0.00') participant_name     , total_commission from (select    LeftSide(participant_name, Locate('(',participant_name)-2) participant_name, sum(sum_amount_value) as total_commission from $framework.payroll_approval_comm_by_payee_and_earning_group group by participant_name order by total_commission limit 1), 100 total_commission from dual",
+    "dependencies": [
+      "payroll_approval_comm_by_payee_and_earning_group"
+    ]
+  },
+  {
+    "variables": [],
+    "savedInEditor": true,
+    "isValid": true,
+    "name": "payroll_approval_set_default_manager",
+    "description": null,
+    "id": "a9967377fc4544832ca5e71cfcd152dd.ent54863dca20e370bd73c901d16ff8a",
+    "xsql": "select manager_pos_id FROM ( SELECT DISTINCT hier.from_pos_id as manager_pos_id   , hier.from_pos_name as manager_pos_name   , assign.participant_name as manager FROM   xactly.xc_pos_hierarchy hier JOIN   xactly.xc_pos_part_assignment assign   on assign.position_id = hier.from_pos_id ORDER BY   manager ) WHERE manager = 'Chris Walker (1100)'",
+    "dependencies": []
+  },
+  {
+    "variables": [],
+    "savedInEditor": true,
+    "isValid": true,
+    "name": "payroll_approval_dropdown_months",
+    "description": null,
+    "id": "31928de042cd23a4752eb883dadec656.ent54863dca20e370bd73c901d16ff8a",
+    "xsql": "SELECT DISTINCT(a.name) FROM xactly.xc_period a INNER JOIN xactly.xc_period_type b ON a.period_type_id_fk = b.period_type_id WHERE b.name = 'MONTHLY' AND a.is_active = 1 ORDER BY a.start_date",
+    "dependencies": []
+  },
+  {
+    "variables": [
+      {
+        "name": "var_period",
+        "value": "SEP-2022",
+        "dataType": "String",
+        "queryId": "fc72b098baa461863e61f45644e0d61c.ent54863dca20e370bd73c901d16ff8a",
+        "id": "e1b23aac4045bd4f45fedd1ef3fe499c.entbf6a2450b41b733c0ec6382ce81bc"
+      }
+    ],
+    "savedInEditor": true,
+    "isValid": true,
+    "name": "payroll_approval_comm_details",
+    "description": null,
+    "id": "fc72b098baa461863e61f45644e0d61c.ent54863dca20e370bd73c901d16ff8a",
+    "xsql": "SELECT     comm.participant_name , comm.earning_group_name earning_group     , comm.order_code     , comm.item_code , comm.customer_name , comm.product_name , comm.credit_amount , FormatNumber(comm.credit_amount,'#,##0.00;(#,##0.00)') credit_amount_formatted     , comm.rate_amount , FormatNumber(comm.rate_amount/100.0,'#,##0.00%;(#,##0.00%)') rate_amount_formatted     , comm.amount , FormatNumber(comm.amount,'#,##0.00;(#,##0.00)') amount_formatted , comm.amount_display_symbol , 0 Submit_For_Approval FROM xactly.xc_commission comm     JOIN xactly.xc_participant part on comm.participant_id = part.participant_id  WHERE comm.period_name = :var_period     AND comm.participant_name = :var_participant_name     AND comm.earning_group_name = :var_earning_group ORDER BY     comm.commission_id",
+    "dependencies": []
+  },
+  {
+    "variables": [],
+    "savedInEditor": true,
+    "isValid": true,
+    "name": "payroll_approval_dropdown_managers",
+    "description": null,
+    "id": "9566f91579ad2e69f2530fb4999008cb.ent54863dca20e370bd73c901d16ff8a",
+    "xsql": "SELECT DISTINCT(assign.participant_name) as manager, hier.from_pos_id as manager_pos_id, hier.from_pos_name as manager_pos_name FROM xactly.xc_pos_hierarchy hier JOIN   xactly.xc_pos_part_assignment assign   on assign.position_id = hier.from_pos_id ORDER BY manager ASC",
+    "dependencies": []
+  },
+  {
+    "variables": [
+      {
+        "name": "var_manager_position_id",
+        "value": "238576366",
+        "dataType": "Float",
+        "queryId": "b45ac484958ed42c782449d0e259b4c3.ent54863dca20e370bd73c901d16ff8a",
+        "id": "a4928c20f7e8288a0fab69de7dca9d82.entbf6a2450b41b733c0ec6382ce81bc"
+      },
+      {
+        "name": "var_period",
+        "value": "JUN-2015",
+        "dataType": "String",
+        "queryId": "b45ac484958ed42c782449d0e259b4c3.ent54863dca20e370bd73c901d16ff8a",
+        "id": "67689065013db1b3ead164b814d230a3.entbf6a2450b41b733c0ec6382ce81bc"
+      }
+    ],
+    "savedInEditor": true,
+    "isValid": true,
+    "name": "payroll_approval_comm_by_payee_and_earning_group",
+    "description": null,
+    "id": "b45ac484958ed42c782449d0e259b4c3.ent54863dca20e370bd73c901d16ff8a",
+    "xsql": "SELECT comm.period_name , part.region , comm.participant_name , comm.position_name , comm.earning_group_name earning_group , FormatNumber(Max(latest_comm.attainment_value),'#,##0.00%') quota_attainment , FormatNumber(Max(ytd_comm.commissions_ytd) / Max(part.personal_target),'#,##0.00%') ti_attainment     , SUM(comm.credit_amount) sum_credit_amount_value , FormatNumber(SUM(comm.credit_amount),'#,##0.00;(#,##0.00)') Sum_credit_amount     , SUM(comm.amount) sum_amount_value , FormatNumber(SUM(comm.amount),'#,##0.00;(#,##0.00)') Sum_amount , comm.amount_display_symbol , 0 Submit_For_Approval FROM xactly.xc_commission comm      JOIN xactly.xc_participant part ON comm.participant_id = part.participant_id      JOIN $framework.payroll_approval_get_latest_commission_records latest_comm ON comm.period_name = latest_comm.period_name AND comm.participant_id = latest_comm.participant_id AND comm.earning_group_name = latest_comm.earning_group_name     JOIN $framework.payroll_approval_get_ytd_commissions ytd_comm         ON         comm.participant_id = ytd_comm.participant_id WHERE comm.period_name = :var_period     AND comm.position_name in (select position_name from $framework.payroll_approval_parent_child_hierarchy where manager_pos_id = :var_manager_position_id) GROUP BY comm.period_name , part.region , comm.participant_name , comm.position_name , comm.earning_group_name , comm.amount_display_symbol ORDER BY part.region , comm.participant_name , comm.earning_group_name",
+    "dependencies": [
+      "payroll_approval_get_ytd_commissions",
+      "payroll_approval_parent_child_hierarchy"
+    ]
+  },
+  {
+    "variables": [
+      {
+        "name": "var_period",
+        "value": "JUN-2015",
+        "dataType": "String",
+        "queryId": "62a44a8bc6ebb500a81721890c951a0a.ent54863dca20e370bd73c901d16ff8a",
+        "id": "f53311d54548c4f0fde8a2819868a114.entbf6a2450b41b733c0ec6382ce81bc"
+      }
+    ],
+    "savedInEditor": true,
+    "isValid": true,
+    "name": "payroll_approval_get_ytd_commissions",
+    "description": null,
+    "id": "62a44a8bc6ebb500a81721890c951a0a.ent54863dca20e370bd73c901d16ff8a",
+    "xsql": "select    :var_period as period_name   , comm.participant_id   , comm.participant_name   , sum(comm.amount) as commissions_ytd from xactly.xc_commission comm  where comm.period_name in (select per.name from $framework.payroll_approval_get_ytd_periods) group BY   period_name   , comm.participant_id   , comm.participant_name",
+    "dependencies": []
+  },
+  {
+    "variables": [
+      {
+        "name": "var_period",
+        "value": "''",
+        "dataType": "String",
+        "queryId": "4e854b1b26ea8cf28aa4977095e2548c.ent54863dca20e370bd73c901d16ff8a",
+        "id": "46a90d95de79e4679715870f79ce290b.entbf6a2450b41b733c0ec6382ce81bc"
+      },
+      {
+        "name": "var_period4",
+        "value": "''",
+        "dataType": "String",
+        "queryId": "4e854b1b26ea8cf28aa4977095e2548c.ent54863dca20e370bd73c901d16ff8a",
+        "id": "1bfe1016987c82e4be7a4976c6804998.entbf6a2450b41b733c0ec6382ce81bc"
+      }
+    ],
+    "savedInEditor": true,
+    "isValid": true,
+    "name": "payroll_approval_parent_child_hierarchy",
+    "description": null,
+    "id": "4e854b1b26ea8cf28aa4977095e2548c.ent54863dca20e370bd73c901d16ff8a",
+    "xsql": "SELECT    hier.to_pos_id as position_id   , hier.to_pos_name as position_name   , assign1.participant_name as participant   , hier.from_pos_id as manager_pos_id   , hier.from_pos_name as manager_pos_name   , assign2.participant_name as manager FROM   xactly.xc_pos_hierarchy hier JOIN   xactly.xc_pos_part_assignment assign1   on assign1.position_id = hier.to_pos_id JOIN   xactly.xc_pos_part_assignment assign2   on assign2.position_id = hier.from_pos_id ORDER BY   manager_pos_name   , position_name",
+    "dependencies": []
+  },
+  {
+    "variables": [
+      {
+        "name": "var_period",
+        "value": "''",
+        "dataType": "String",
+        "queryId": "9490d3be4166eec43a3e876c2e4f9ea8.ent54863dca20e370bd73c901d16ff8a",
+        "id": "bb60b54b5dc1757b6ed5f90c099a07b2.entbf6a2450b41b733c0ec6382ce81bc"
+      },
+      {
+        "name": "var_period4",
+        "value": "''",
+        "dataType": "String",
+        "queryId": "9490d3be4166eec43a3e876c2e4f9ea8.ent54863dca20e370bd73c901d16ff8a",
+        "id": "18a2a244361828126c3b2009d0af5183.entbf6a2450b41b733c0ec6382ce81bc"
+      }
+    ],
+    "savedInEditor": true,
+    "isValid": true,
+    "name": "payroll_approval_get_ytd_periods",
+    "description": null,
+    "id": "9490d3be4166eec43a3e876c2e4f9ea8.ent54863dca20e370bd73c901d16ff8a",
+    "xsql": "SELECT   per.* FROM   xactly.xc_period per JOIN   xactly.xc_period_type pertype ON   pertype.period_type_id = per.period_type_id_fk WHERE   pertype.name = 'MONTHLY'   AND RightSide(per.name,4) = RightSide(:var_period,4)   AND per.order_number <= (select order_number from xactly.xc_period where name = :var_period)",
+    "dependencies": []
+  },
+  {
+    "variables": [
+      {
+        "name": "var_period",
+        "value": "JUN-2015",
+        "dataType": "String",
+        "queryId": "7912a44edf319486084b3800e03a96b5.ent54863dca20e370bd73c901d16ff8a",
+        "id": "96c7c88b646be0d119cac74d4da615fb.entbf6a2450b41b733c0ec6382ce81bc"
+      }
+    ],
+    "savedInEditor": true,
+    "isValid": true,
+    "name": "payroll_approval_kpi_3",
+    "description": null,
+    "id": "7912a44edf319486084b3800e03a96b5.ent54863dca20e370bd73c901d16ff8a",
+    "xsql": "select participant_name||' / '||FormatNumber(total_commission,'#,##0.00') participant_name     , total_commission from (select    LeftSide(participant_name, Locate('(',participant_name)-2) participant_name, sum(sum_amount_value) as total_commission from $framework.payroll_approval_comm_by_payee_and_earning_group group by participant_name order by total_commission desc limit 1)",
+    "dependencies": [
+      "payroll_approval_comm_by_payee_and_earning_group"
+    ]
+  },
+  {
+    "variables": [],
+    "savedInEditor": true,
+    "isValid": true,
+    "name": "payroll_set_default_period",
+    "description": null,
+    "id": "ea2fc2f5c37bf0aac168bc4dbd622e15.ent54863dca20e370bd73c901d16ff8a",
+    "xsql": "select 'SEP-2022' as period_name",
+    "dependencies": []
+  },
+  {
+    "variables": [
+      {
+        "name": "var_period",
+        "value": "JUN-2015",
+        "dataType": "String",
+        "queryId": "7ec74a94b9761fde4e012b3c1fed22af.ent54863dca20e370bd73c901d16ff8a",
+        "id": "b0511c4e700b36a9aa701f54f2c3f32f.entbf6a2450b41b733c0ec6382ce81bc"
+      }
+    ],
+    "savedInEditor": true,
+    "isValid": true,
+    "name": "payroll_approval_kpis",
+    "description": null,
+    "id": "7ec74a94b9761fde4e012b3c1fed22af.ent54863dca20e370bd73c901d16ff8a",
+    "xsql": "select    sum(sum_credit_amount_value) as total_credits   , FormatNumber (total_credits, '#,##0.00') total_credits_formatted   , sum(sum_amount_value) as total_commissions   , FormatNumber (total_commissions, '#,##0.00') total_commissions_formatted  from $framework.payroll_approval_comm_by_payee_and_earning_group",
+    "dependencies": [
+      "payroll_approval_comm_by_payee_and_earning_group"
+    ]
+  }
+]
