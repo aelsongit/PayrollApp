@@ -6,7 +6,198 @@
     "controlSchema": {
       "schema": {
         "type": "object",
-        "properties": {}
+        "properties": {
+          "control_175": {
+            "type": "label",
+            "controlId": "e743ea52-86a9-4ff4-9a53-153221a531ca",
+            "accessRoles": null,
+            "controlData": "<p><span style=\"font-size: 24pt;\">Payroll Approval Initiation</span></p>",
+            "layoutSize": 50
+          },
+          "control_176": {
+            "type": "label",
+            "controlId": "9530785a-32f5-47a1-b167-b077696a3cde",
+            "accessRoles": null,
+            "controlData": "<p style=\"text-align: right;\"><img class=\"icon-panel__image\" style=\"box-sizing: inherit; border-style: none; max-width: 100%; margin-top: 20px; margin-bottom: 30px; caret-color: #2c2e2f; color: #2c2e2f; font-family: PayPalSansSmall-Regular, 'Helvetica Neue', Arial, sans-serif; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;\" src=\"https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png\" alt=\"panel-img\" /></p>",
+            "layoutSize": 50
+          },
+          "control_177": {
+            "type": "label",
+            "controlId": "e68ecf2b-d745-425d-ad93-6974e7cb5124",
+            "accessRoles": null,
+            "controlData": "<p><span style=\"font-size: 14pt;\">To initiate the approval process:<br /></span></p>\n<ol>\n<li><span style=\"font-size: 14pt;\">Select a month from the drop-down.<br /></span></li>\n<li><span style=\"font-size: 14pt;\">Select one or more managers in the grid below.</span></li>\n<li><span style=\"font-size: 14pt;\">Click the <strong>Initialize Process</strong> button.</span></li>\n</ol>",
+            "layoutSize": null
+          },
+          "control_178": {
+            "type": "dropdown",
+            "controlId": "be642e19-c2a7-46b6-9122-1cd6ab4160a8",
+            "accessRoles": null,
+            "events": [
+              {
+                "name": "$onPageLoad",
+                "eventSelection": "BIND_EVENT",
+                "id": "be642e19-c2a7-46b6-9122-1cd6ab4160a8",
+                "handlers": [
+                  "refresh"
+                ],
+                "handlerArgs": [
+                  {}
+                ],
+                "preHandlers": [],
+                "preHandlerArgs": []
+              }
+            ],
+            "datasource": {
+              "name": "payroll_approval_dropdown_months",
+              "type": "view",
+              "isReadOnly": true,
+              "schema": "$framework",
+              "seriesColors": {}
+            },
+            "pagination": {
+              "currentPage": 1,
+              "totalItems": null,
+              "itemsPerPage": 200
+            },
+            "columns": [],
+            "variables": [],
+            "isMultiSelect": false,
+            "shouldHideLabel": false,
+            "displayField": {
+              "dataType": "string",
+              "name": "name"
+            },
+            "valueField": {
+              "dataType": "string",
+              "name": "name"
+            },
+            "labelText": "Choose month",
+            "layoutSize": 25
+          },
+          "control_179": {
+            "type": "list",
+            "controlId": "153b7179-eafd-4b0e-b70f-3f5733f3e3db",
+            "accessRoles": null,
+            "events": [
+              {
+                "name": "$onPageLoad",
+                "eventSelection": "BIND_EVENT",
+                "id": "153b7179-eafd-4b0e-b70f-3f5733f3e3db",
+                "handlers": [
+                  "refresh"
+                ],
+                "handlerArgs": [
+                  {}
+                ],
+                "preHandlers": [],
+                "preHandlerArgs": []
+              }
+            ],
+            "datasource": {
+              "name": "payroll_approval_dropdown_managers",
+              "type": "view",
+              "isReadOnly": true,
+              "schema": "$framework",
+              "seriesColors": {}
+            },
+            "pagination": {
+              "currentPage": 1,
+              "totalItems": null,
+              "itemsPerPage": 200
+            },
+            "columns": [
+              {
+                "field": "manager_pos_name",
+                "name": "manager_pos_name",
+                "headerName": "Manager Position",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "manager",
+                "name": "manager",
+                "headerName": "Manager",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              }
+            ],
+            "variables": [],
+            "selectedField": "",
+            "selectedVariable": "",
+            "multiSelectEnabled": true
+          },
+          "control_180": {
+            "type": "button",
+            "controlId": "57bd2cab-f4f9-4aa8-89e7-177a853915d5",
+            "accessRoles": null,
+            "events": [
+              {
+                "name": "Initialize",
+                "eventSelection": "CREATE_EVENT",
+                "id": "57bd2cab-f4f9-4aa8-89e7-177a853915d5",
+                "handlers": [],
+                "preHandlers": []
+              }
+            ],
+            "controlData": "Initialize Process",
+            "layoutSize": null
+          },
+          "control_181": {
+            "type": "modal",
+            "controlId": "b3f9e3ea-58f5-4d75-9eaa-3e86230493cf",
+            "accessRoles": null,
+            "events": [
+              {
+                "name": "Initialize",
+                "eventSelection": "BIND_EVENT",
+                "id": "b3f9e3ea-58f5-4d75-9eaa-3e86230493cf",
+                "handlers": [
+                  "toggle"
+                ],
+                "preHandlers": []
+              }
+            ],
+            "variables": [],
+            "modalSize": "sm",
+            "hasHeader": true,
+            "hasFooter": false,
+            "modalHeaderMessage": "",
+            "pageSchema": {
+              "properties": {},
+              "controlSchema": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "control_182": {
+                      "type": "label",
+                      "controlId": "7150cb46-a3c2-4a83-8c8f-1f4704ba12f0",
+                      "accessRoles": null,
+                      "controlData": "<p style=\"text-align: center;\"><span style=\"font-size: 18pt;\">Process initialized successfully.<br /></span></p>",
+                      "layoutSize": 50
+                    }
+                  }
+                }
+              }
+            },
+            "footerSchema": {
+              "properties": {},
+              "controlSchema": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "innerCanvasMappings": {
+              "pageSchema": "appElements",
+              "footerSchema": "footerElements"
+            }
+          }
+        }
       }
     }
   },
