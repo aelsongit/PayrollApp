@@ -40,6 +40,26 @@
     "dependencies": []
   },
   {
+    "variables": [],
+    "savedInEditor": true,
+    "isValid": true,
+    "name": "payroll_approval_declined_count_kpi",
+    "description": null,
+    "id": "6f28cc7d634adb4380e498fd35fe468c.ent54863dca20e370bd73c901d16ff8a",
+    "xsql": "SELECT count(*) FROM $framework.payroll_approval_status where status = 'Declined'",
+    "dependencies": []
+  },
+  {
+    "variables": [],
+    "savedInEditor": true,
+    "isValid": true,
+    "name": "payroll_approval_submitted_count_kpi",
+    "description": null,
+    "id": "b3c197ea67d446d4fe5cac32f0a79e88.ent54863dca20e370bd73c901d16ff8a",
+    "xsql": "SELECT count(*) FROM $framework.payroll_approval_status where status = 'Submitted'",
+    "dependencies": []
+  },
+  {
     "variables": [
       {
         "name": "var_period",
@@ -136,6 +156,16 @@
     "description": null,
     "id": "4e854b1b26ea8cf28aa4977095e2548c.ent54863dca20e370bd73c901d16ff8a",
     "xsql": "SELECT    hier.to_pos_id as position_id   , hier.to_pos_name as position_name   , assign1.participant_name as participant   , hier.from_pos_id as manager_pos_id   , hier.from_pos_name as manager_pos_name   , assign2.participant_name as manager FROM   xactly.xc_pos_hierarchy hier JOIN   xactly.xc_pos_part_assignment assign1   on assign1.position_id = hier.to_pos_id JOIN   xactly.xc_pos_part_assignment assign2   on assign2.position_id = hier.from_pos_id ORDER BY   manager_pos_name   , position_name",
+    "dependencies": []
+  },
+  {
+    "variables": [],
+    "savedInEditor": true,
+    "isValid": true,
+    "name": "payroll_approval_approved_count_kpi",
+    "description": null,
+    "id": "97be4b5b0dc31ad999d31013b29853e6.ent54863dca20e370bd73c901d16ff8a",
+    "xsql": "SELECT count(*) FROM $framework.payroll_approval_status where status = 'Approved'",
     "dependencies": []
   },
   {
