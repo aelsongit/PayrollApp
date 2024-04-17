@@ -6,7 +6,987 @@
     "controlSchema": {
       "schema": {
         "type": "object",
-        "properties": {}
+        "properties": {
+          "control_1": {
+            "type": "variableConfigurator",
+            "controlId": "964d0319-dceb-4779-98a1-49424b0ec797",
+            "accessRoles": null,
+            "events": [
+              {
+                "name": "$onPageLoad",
+                "eventSelection": "BIND_EVENT",
+                "id": "964d0319-dceb-4779-98a1-49424b0ec797",
+                "handlers": [
+                  "refresh"
+                ],
+                "preHandlers": []
+              },
+              {
+                "name": "DefaultPeriodSet",
+                "eventSelection": "CREATE_EVENT",
+                "id": "964d0319-dceb-4779-98a1-49424b0ec797",
+                "handlers": [],
+                "preHandlers": []
+              }
+            ],
+            "datasource": {
+              "name": "payroll_set_default_period",
+              "type": "view",
+              "isReadOnly": true,
+              "schema": "$framework",
+              "seriesColors": {}
+            },
+            "pagination": {
+              "currentPage": 1,
+              "totalItems": null,
+              "itemsPerPage": 200
+            },
+            "columns": [],
+            "variables": [
+              {
+                "name": "var_period"
+              }
+            ],
+            "valueField": {
+              "dataType": "string",
+              "name": "period_name"
+            },
+            "usingMultiSelectVariableFormat": false,
+            "title": "Set Default Period"
+          },
+          "control_2": {
+            "type": "variableConfigurator",
+            "controlId": "10c6271d-7378-4fe1-850f-f2abaf77c783",
+            "accessRoles": null,
+            "events": [
+              {
+                "name": "$onPageLoad",
+                "eventSelection": "BIND_EVENT",
+                "id": "10c6271d-7378-4fe1-850f-f2abaf77c783",
+                "handlers": [
+                  "refresh"
+                ],
+                "preHandlers": []
+              },
+              {
+                "name": "DefaultTeamSet",
+                "eventSelection": "CREATE_EVENT",
+                "id": "10c6271d-7378-4fe1-850f-f2abaf77c783",
+                "handlers": [],
+                "preHandlers": []
+              }
+            ],
+            "datasource": {
+              "name": "payroll_approval_set_default_manager",
+              "type": "view",
+              "isReadOnly": true,
+              "schema": "$framework",
+              "seriesColors": {}
+            },
+            "pagination": {
+              "currentPage": 1,
+              "totalItems": null,
+              "itemsPerPage": 200
+            },
+            "columns": [],
+            "variables": [
+              {
+                "name": "var_manager_position_id"
+              }
+            ],
+            "valueField": {
+              "dataType": "decimal",
+              "name": "manager_pos_id"
+            },
+            "usingMultiSelectVariableFormat": false,
+            "title": "Set Default Team"
+          },
+          "control_3": {
+            "type": "label",
+            "controlId": "3e4f701b-eb15-4091-99ac-432dfce61acc",
+            "accessRoles": null,
+            "controlData": "<p><span style=\"font-size: 24pt;\">Payee Commissions</span></p>",
+            "layoutSize": 50
+          },
+          "control_4": {
+            "type": "label",
+            "controlId": "dfd02067-4bae-4dc7-842e-af90390a0487",
+            "accessRoles": null,
+            "controlData": "<p style=\"text-align: right;\"><img class=\"icon-panel__image\" style=\"box-sizing: inherit; border-style: none; max-width: 100%; margin-top: 20px; margin-bottom: 30px; caret-color: #2c2e2f; color: #2c2e2f; font-family: PayPalSansSmall-Regular, 'Helvetica Neue', Arial, sans-serif; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;\" src=\"https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png\" alt=\"panel-img\" /></p>",
+            "layoutSize": 50
+          },
+          "control_5": {
+            "type": "dropdown",
+            "controlId": "01d140cb-a620-4abd-8080-0a91dbda8813",
+            "accessRoles": null,
+            "events": [
+              {
+                "name": "PeriodSelected",
+                "eventSelection": "CREATE_EVENT",
+                "id": "01d140cb-a620-4abd-8080-0a91dbda8813",
+                "handlers": [],
+                "preHandlers": []
+              },
+              {
+                "name": "DefaultPeriodSet",
+                "eventSelection": "BIND_EVENT",
+                "id": "01d140cb-a620-4abd-8080-0a91dbda8813",
+                "handlers": [
+                  "assignCurrentVariable"
+                ],
+                "preHandlers": []
+              }
+            ],
+            "datasource": {
+              "name": "payroll_approval_dropdown_months",
+              "type": "view",
+              "isReadOnly": true,
+              "schema": "$framework",
+              "seriesColors": {}
+            },
+            "pagination": {
+              "currentPage": 1,
+              "totalItems": null,
+              "itemsPerPage": 200
+            },
+            "columns": [],
+            "variables": [
+              {
+                "name": "var_period"
+              }
+            ],
+            "isMultiSelect": false,
+            "shouldHideLabel": false,
+            "displayField": {
+              "dataType": "string",
+              "name": "name"
+            },
+            "valueField": {
+              "dataType": "string",
+              "name": "name"
+            },
+            "labelText": "Period",
+            "layoutSize": 25
+          },
+          "control_6": {
+            "type": "dropdown",
+            "controlId": "d49aef44-069b-401c-b56a-75fcd35a360a",
+            "accessRoles": null,
+            "events": [
+              {
+                "name": "TeamSelected",
+                "eventSelection": "CREATE_EVENT",
+                "id": "d49aef44-069b-401c-b56a-75fcd35a360a",
+                "handlers": [],
+                "preHandlers": []
+              },
+              {
+                "name": "DefaultTeamSet",
+                "eventSelection": "BIND_EVENT",
+                "id": "d49aef44-069b-401c-b56a-75fcd35a360a",
+                "handlers": [
+                  "assignCurrentVariable"
+                ],
+                "preHandlers": []
+              }
+            ],
+            "datasource": {
+              "name": "payroll_approval_dropdown_managers",
+              "type": "view",
+              "isReadOnly": true,
+              "schema": "$framework",
+              "seriesColors": {}
+            },
+            "pagination": {
+              "currentPage": 1,
+              "totalItems": null,
+              "itemsPerPage": 200
+            },
+            "columns": [],
+            "variables": [
+              {
+                "name": "var_manager_position_id"
+              }
+            ],
+            "isMultiSelect": false,
+            "shouldHideLabel": false,
+            "displayField": {
+              "dataType": "string",
+              "name": "manager"
+            },
+            "valueField": {
+              "dataType": "decimal",
+              "name": "manager_pos_id"
+            },
+            "labelText": "Team",
+            "layoutSize": 25
+          },
+          "control_7": {
+            "type": "label",
+            "controlId": "6f213b25-accd-41e4-8983-a18faebb76d4",
+            "accessRoles": null,
+            "controlData": "",
+            "layoutSize": 50
+          },
+          "control_8": {
+            "type": "tile",
+            "controlId": "c8a98111-b98e-48cc-8ba8-96f70e2c7bed",
+            "accessRoles": null,
+            "events": [
+              {
+                "name": "PeriodSelected",
+                "eventSelection": "BIND_EVENT",
+                "id": "c8a98111-b98e-48cc-8ba8-96f70e2c7bed",
+                "handlers": [
+                  "refresh"
+                ],
+                "preHandlers": []
+              },
+              {
+                "name": "TeamSelected",
+                "eventSelection": "BIND_EVENT",
+                "id": "c8a98111-b98e-48cc-8ba8-96f70e2c7bed",
+                "handlers": [
+                  "refresh"
+                ],
+                "preHandlers": []
+              },
+              {
+                "name": "DefaultTeamSet",
+                "eventSelection": "BIND_EVENT",
+                "id": "c8a98111-b98e-48cc-8ba8-96f70e2c7bed",
+                "handlers": [
+                  "refresh"
+                ],
+                "preHandlers": []
+              }
+            ],
+            "datasource": {
+              "name": "payroll_approval_kpis",
+              "type": "view",
+              "isReadOnly": true,
+              "schema": "$framework",
+              "seriesColors": {}
+            },
+            "pagination": {
+              "currentPage": 1,
+              "totalItems": null,
+              "itemsPerPage": 200
+            },
+            "columns": [],
+            "titleText": "Total Team Credit",
+            "subtitleText": "Current month",
+            "icon": "Calculator",
+            "data": "",
+            "column": "total_credits_formatted",
+            "layoutSize": 25
+          },
+          "control_9": {
+            "type": "tile",
+            "controlId": "cd141c10-c0a2-4a47-899a-e149ff42c489",
+            "accessRoles": null,
+            "events": [
+              {
+                "name": "PeriodSelected",
+                "eventSelection": "BIND_EVENT",
+                "id": "cd141c10-c0a2-4a47-899a-e149ff42c489",
+                "handlers": [
+                  "refresh"
+                ],
+                "preHandlers": []
+              },
+              {
+                "name": "TeamSelected",
+                "eventSelection": "BIND_EVENT",
+                "id": "cd141c10-c0a2-4a47-899a-e149ff42c489",
+                "handlers": [
+                  "refresh"
+                ],
+                "preHandlers": []
+              },
+              {
+                "name": "DefaultTeamSet",
+                "eventSelection": "BIND_EVENT",
+                "id": "cd141c10-c0a2-4a47-899a-e149ff42c489",
+                "handlers": [
+                  "refresh"
+                ],
+                "preHandlers": []
+              }
+            ],
+            "datasource": {
+              "name": "payroll_approval_kpis",
+              "type": "view",
+              "isReadOnly": true,
+              "schema": "$framework",
+              "seriesColors": {}
+            },
+            "pagination": {
+              "currentPage": 1,
+              "totalItems": null,
+              "itemsPerPage": 200
+            },
+            "columns": [],
+            "titleText": "Total Team Commission",
+            "subtitleText": "Current Month",
+            "icon": "Bullhorn",
+            "data": "",
+            "column": "total_commissions_formatted",
+            "layoutSize": 25
+          },
+          "control_10": {
+            "type": "tile",
+            "controlId": "69ac0158-855c-4a81-8345-b210de0a1b82",
+            "accessRoles": null,
+            "events": [
+              {
+                "name": "PeriodSelected",
+                "eventSelection": "BIND_EVENT",
+                "id": "69ac0158-855c-4a81-8345-b210de0a1b82",
+                "handlers": [
+                  "refresh"
+                ],
+                "preHandlers": []
+              },
+              {
+                "name": "TeamSelected",
+                "eventSelection": "BIND_EVENT",
+                "id": "69ac0158-855c-4a81-8345-b210de0a1b82",
+                "handlers": [
+                  "refresh"
+                ],
+                "preHandlers": []
+              },
+              {
+                "name": "DefaultTeamSet",
+                "eventSelection": "BIND_EVENT",
+                "id": "69ac0158-855c-4a81-8345-b210de0a1b82",
+                "handlers": [
+                  "refresh"
+                ],
+                "preHandlers": []
+              }
+            ],
+            "datasource": {
+              "name": "payroll_approval_kpi_3",
+              "type": "view",
+              "isReadOnly": true,
+              "schema": "$framework",
+              "seriesColors": {}
+            },
+            "pagination": {
+              "currentPage": 1,
+              "totalItems": null,
+              "itemsPerPage": 200
+            },
+            "columns": [],
+            "titleText": "Highest Paid This Month",
+            "subtitleText": "",
+            "icon": "Alert Triangle",
+            "data": "",
+            "column": "participant_name",
+            "layoutSize": 25
+          },
+          "control_11": {
+            "type": "tile",
+            "controlId": "feb29650-f1ca-4daf-a3fa-11349bf12884",
+            "accessRoles": null,
+            "events": [
+              {
+                "name": "PeriodSelected",
+                "eventSelection": "BIND_EVENT",
+                "id": "feb29650-f1ca-4daf-a3fa-11349bf12884",
+                "handlers": [
+                  "refresh"
+                ],
+                "preHandlers": []
+              },
+              {
+                "name": "TeamSelected",
+                "eventSelection": "BIND_EVENT",
+                "id": "feb29650-f1ca-4daf-a3fa-11349bf12884",
+                "handlers": [
+                  "refresh"
+                ],
+                "preHandlers": []
+              },
+              {
+                "name": "DefaultTeamSet",
+                "eventSelection": "BIND_EVENT",
+                "id": "feb29650-f1ca-4daf-a3fa-11349bf12884",
+                "handlers": [
+                  "refresh"
+                ],
+                "preHandlers": []
+              }
+            ],
+            "datasource": {
+              "name": "payroll_approval_kpi_4",
+              "type": "view",
+              "isReadOnly": true,
+              "schema": "$framework",
+              "seriesColors": {}
+            },
+            "pagination": {
+              "currentPage": 1,
+              "totalItems": null,
+              "itemsPerPage": 200
+            },
+            "columns": [],
+            "titleText": "Lowest Paid This Month",
+            "subtitleText": "",
+            "icon": "Alert Triangle Filed",
+            "data": "",
+            "column": "participant_name",
+            "layoutSize": 25
+          },
+          "control_12": {
+            "type": "table",
+            "controlId": "0cf42739-ad1e-4c46-9825-2f0987516363",
+            "accessRoles": null,
+            "events": [
+              {
+                "name": "PeriodSelected",
+                "eventSelection": "BIND_EVENT",
+                "id": "0cf42739-ad1e-4c46-9825-2f0987516363",
+                "handlers": [
+                  "refresh"
+                ],
+                "preHandlers": []
+              },
+              {
+                "name": "RecordSelected",
+                "eventSelection": "CREATE_EVENT",
+                "id": "0cf42739-ad1e-4c46-9825-2f0987516363",
+                "handlers": [],
+                "preHandlers": []
+              },
+              {
+                "name": "DefaultPeriodSet",
+                "eventSelection": "BIND_EVENT",
+                "id": "0cf42739-ad1e-4c46-9825-2f0987516363",
+                "handlers": [
+                  "refresh"
+                ],
+                "preHandlers": []
+              },
+              {
+                "name": "Download",
+                "eventSelection": "BIND_EVENT",
+                "id": "0cf42739-ad1e-4c46-9825-2f0987516363",
+                "handlers": [
+                  "exportAsCSV"
+                ],
+                "preHandlers": []
+              },
+              {
+                "name": "TeamSelected",
+                "eventSelection": "BIND_EVENT",
+                "id": "0cf42739-ad1e-4c46-9825-2f0987516363",
+                "handlers": [
+                  "refresh"
+                ],
+                "preHandlers": []
+              },
+              {
+                "name": "DefaultTeamSet",
+                "eventSelection": "BIND_EVENT",
+                "id": "0cf42739-ad1e-4c46-9825-2f0987516363",
+                "handlers": [
+                  "refresh"
+                ],
+                "preHandlers": []
+              }
+            ],
+            "datasource": {
+              "name": "payroll_approval_comm_by_payee_and_earning_group",
+              "type": "view",
+              "isReadOnly": true,
+              "schema": "$framework",
+              "seriesColors": {}
+            },
+            "pagination": {
+              "currentPage": 1,
+              "totalItems": null,
+              "itemsPerPage": 200
+            },
+            "columns": [
+              {
+                "field": "period_name",
+                "name": "period_name",
+                "headerName": "Month",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "region",
+                "name": "region",
+                "headerName": "Region",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "participant_name",
+                "name": "participant_name",
+                "headerName": "Payee",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "position_name",
+                "name": "position_name",
+                "headerName": "Position",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "earning_group",
+                "name": "earning_group",
+                "headerName": "Earning Group",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "sum_credit_amount",
+                "name": "sum_credit_amount",
+                "headerName": "Total Credit",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "sum_amount",
+                "name": "sum_amount",
+                "headerName": "Total Earnings",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "amount_display_symbol",
+                "name": "amount_display_symbol",
+                "headerName": "Currency",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "quota_attainment",
+                "name": "quota_attainment",
+                "headerName": "Quota Attainment",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "ti_attainment",
+                "name": "ti_attainment",
+                "headerName": "TI Attainment",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              }
+            ],
+            "variables": [
+              {
+                "name": "var_participant_name",
+                "boundToField": "participant_name"
+              },
+              {
+                "name": "var_earning_group",
+                "boundToField": "earning_group"
+              }
+            ],
+            "table": "grid",
+            "title": ""
+          },
+          "control_13": {
+            "type": "label",
+            "controlId": "ad51794e-1f60-476c-8ad5-498908dcf8fd",
+            "accessRoles": null,
+            "controlData": "<p><span style=\"color: #000000; font-family: -apple-system, 'system-ui', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\">Click on a summary record above to display the corresponding transaction details below.</span></p>",
+            "layoutSize": null
+          },
+          "control_14": {
+            "type": "xSQLButton",
+            "controlId": "24d1e6b3-ce13-4120-bae6-2d240dadf330",
+            "accessRoles": null,
+            "events": [],
+            "controlData": "Approve",
+            "xSQL": "update $framework.payroll_approval_status \nset status = 'Approved',status_date = ToDate('2023-03-03')\nWhere\n manager_position_id = :var_manager_position_id",
+            "layoutSize": 25
+          },
+          "control_15": {
+            "type": "xSQLButton",
+            "controlId": "90a49d08-05a7-41ea-9b2c-0b8e54ad71ed",
+            "accessRoles": null,
+            "events": [],
+            "controlData": "Decline",
+            "xSQL": "update $framework.payroll_approval_status \nset status = 'Declined',status_date = ToDate('2023-03-03')\nWhere\n manager_position_id = :var_manager_position_id",
+            "layoutSize": 25
+          },
+          "control_16": {
+            "type": "button",
+            "controlId": "97402e4b-f754-4633-b5c9-1fbd19f38cdd",
+            "accessRoles": null,
+            "events": [
+              {
+                "name": "Download",
+                "eventSelection": "CREATE_EVENT",
+                "id": "97402e4b-f754-4633-b5c9-1fbd19f38cdd",
+                "handlers": [],
+                "preHandlers": []
+              }
+            ],
+            "controlData": "Download",
+            "layoutSize": 25
+          },
+          "control_17": {
+            "type": "table",
+            "controlId": "69a71a8f-084c-4b9d-9e96-678b41caeedc",
+            "accessRoles": null,
+            "events": [
+              {
+                "name": "RecordSelected",
+                "eventSelection": "BIND_EVENT",
+                "id": "69a71a8f-084c-4b9d-9e96-678b41caeedc",
+                "handlers": [
+                  "refresh"
+                ],
+                "preHandlers": []
+              }
+            ],
+            "datasource": {
+              "name": "payroll_approval_comm_details",
+              "type": "view",
+              "isReadOnly": true,
+              "schema": "$framework",
+              "seriesColors": {}
+            },
+            "pagination": {
+              "currentPage": 1,
+              "totalItems": null,
+              "itemsPerPage": 200
+            },
+            "columns": [
+              {
+                "field": "participant_name",
+                "name": "participant_name",
+                "headerName": "Payee",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "earning_group",
+                "name": "earning_group",
+                "headerName": "Earning Group",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "order_code",
+                "name": "order_code",
+                "headerName": "Order Code",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "item_code",
+                "name": "item_code",
+                "headerName": "Item Code",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "customer_name",
+                "name": "customer_name",
+                "headerName": "Customer",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "product_name",
+                "name": "product_name",
+                "headerName": "Product",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "credit_amount_formatted",
+                "name": "credit_amount_formatted",
+                "headerName": "Credit",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "rate_amount_formatted",
+                "name": "rate_amount_formatted",
+                "headerName": "Rate",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "amount_formatted",
+                "name": "amount_formatted",
+                "headerName": "Commission",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "amount_display_symbol",
+                "name": "amount_display_symbol",
+                "headerName": "Currency",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              }
+            ],
+            "variables": [],
+            "table": "grid",
+            "title": ""
+          },
+          "control_18": {
+            "type": "table",
+            "controlId": "eb25567d-9a8e-4734-a26b-ebc904ff4e72",
+            "accessRoles": null,
+            "privileges": null,
+            "styles": {
+              "useComponentShadow": false,
+              "useGreyBackground": false,
+              "useInnerGreyBackground": false
+            },
+            "events": [
+              {
+                "name": "$onPageLoad",
+                "eventSelection": "BIND_EVENT",
+                "id": "eb25567d-9a8e-4734-a26b-ebc904ff4e72",
+                "handlers": [
+                  "refresh"
+                ],
+                "handlerArgs": [
+                  {}
+                ],
+                "preHandlers": [],
+                "preHandlerArgs": []
+              }
+            ],
+            "datasource": {
+              "name": "workflowExeViewTable",
+              "type": "table",
+              "isReadOnly": false,
+              "schema": "$framework",
+              "seriesColors": {}
+            },
+            "pagination": {
+              "currentPage": 1,
+              "totalItems": null,
+              "itemsPerPage": 200
+            },
+            "columns": [
+              {
+                "field": "name",
+                "name": "name",
+                "headerName": "name",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "$id",
+                "name": "$id",
+                "headerName": "$id",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": true,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "$version",
+                "name": "$version",
+                "headerName": "$version",
+                "dataType": "integer",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "$created_by",
+                "name": "$created_by",
+                "headerName": "$created_by",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "$created_instant",
+                "name": "$created_instant",
+                "headerName": "$created_instant",
+                "dataType": "instant",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "$modified_by",
+                "name": "$modified_by",
+                "headerName": "$modified_by",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "$modified_instant",
+                "name": "$modified_instant",
+                "headerName": "$modified_instant",
+                "dataType": "instant",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "asdf",
+                "name": "asdf",
+                "headerName": "asdf",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "fdas",
+                "name": "fdas",
+                "headerName": "fdas",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "fdsa",
+                "name": "fdsa",
+                "headerName": "fdsa",
+                "dataType": "byte",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "w2423",
+                "name": "w2423",
+                "headerName": "w2423",
+                "dataType": "long",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "asdfas",
+                "name": "asdfas",
+                "headerName": "asdfas",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "fdsdfdf",
+                "name": "fdsdfdf",
+                "headerName": "fdsdfdf",
+                "dataType": "byte",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "tgtgt",
+                "name": "tgtgt",
+                "headerName": "tgtgt",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "fasdfsdfasdfasdfasdfasdfsd",
+                "name": "fasdfsdfasdfasdfasdfasdfsd",
+                "headerName": "fasdfsdfasdfasdfasdfasdfsd",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "freqf12341",
+                "name": "freqf12341",
+                "headerName": "freqf12341",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "fdsafd223232",
+                "name": "fdsafd223232",
+                "headerName": "fdsafd223232",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "fasdfasdf341342",
+                "name": "fasdfasdf341342",
+                "headerName": "fasdfasdf341342",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              }
+            ],
+            "whereClauseVariable": null,
+            "variables": [],
+            "table": "grid",
+            "title": "",
+            "maxHeight": null
+          }
+        }
       }
     }
   },
