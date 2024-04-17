@@ -6,7 +6,212 @@
     "controlSchema": {
       "schema": {
         "type": "object",
-        "properties": {}
+        "properties": {
+          "control_134": {
+            "type": "label",
+            "controlId": "94e23d1b-6f75-4721-a54f-4574952f4c38",
+            "accessRoles": null,
+            "controlData": "<p><span style=\"font-size: 24pt;\">Status by Manager</span></p>",
+            "layoutSize": 50
+          },
+          "control_135": {
+            "type": "label",
+            "controlId": "7e2bf4fa-dbb3-49ad-9f67-e530b23a6c97",
+            "accessRoles": null,
+            "controlData": "<p style=\"text-align: right;\"><img class=\"icon-panel__image\" style=\"box-sizing: inherit; border-style: none; max-width: 100%; margin-top: 20px; margin-bottom: 30px; caret-color: #2c2e2f; color: #2c2e2f; font-family: PayPalSansSmall-Regular, 'Helvetica Neue', Arial, sans-serif; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;\" src=\"https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png\" alt=\"panel-img\" /></p>\n<p>&nbsp;</p>",
+            "layoutSize": 50
+          },
+          "control_136": {
+            "type": "tile",
+            "controlId": "88245165-15b9-471e-9ec6-4daa74de8b64",
+            "accessRoles": null,
+            "events": [
+              {
+                "name": "$onPageLoad",
+                "eventSelection": "BIND_EVENT",
+                "id": "88245165-15b9-471e-9ec6-4daa74de8b64",
+                "handlers": [
+                  "refresh"
+                ],
+                "handlerArgs": [
+                  {}
+                ],
+                "preHandlers": [],
+                "preHandlerArgs": []
+              }
+            ],
+            "datasource": {
+              "name": "payroll_approval_submitted_count_kpi",
+              "type": "view",
+              "isReadOnly": true,
+              "schema": "$framework",
+              "seriesColors": {}
+            },
+            "pagination": {
+              "currentPage": 1,
+              "totalItems": null,
+              "itemsPerPage": 200
+            },
+            "columns": [],
+            "titleText": "Submitted",
+            "subtitleText": "",
+            "icon": "Arrow Right",
+            "data": "",
+            "column": "count_all",
+            "layoutSize": 25
+          },
+          "control_137": {
+            "type": "tile",
+            "controlId": "c22356d2-9a31-414d-9115-20efe8099669",
+            "accessRoles": null,
+            "events": [
+              {
+                "name": "$onPageLoad",
+                "eventSelection": "BIND_EVENT",
+                "id": "c22356d2-9a31-414d-9115-20efe8099669",
+                "handlers": [
+                  "refresh"
+                ],
+                "handlerArgs": [
+                  {}
+                ],
+                "preHandlers": [],
+                "preHandlerArgs": []
+              }
+            ],
+            "datasource": {
+              "name": "payroll_approval_approved_count_kpi",
+              "type": "view",
+              "isReadOnly": true,
+              "schema": "$framework",
+              "seriesColors": {}
+            },
+            "pagination": {
+              "currentPage": 1,
+              "totalItems": null,
+              "itemsPerPage": 200
+            },
+            "columns": [],
+            "titleText": "Approved",
+            "subtitleText": "",
+            "icon": "Arrow Up",
+            "data": "",
+            "column": "count_all",
+            "layoutSize": 25
+          },
+          "control_138": {
+            "type": "tile",
+            "controlId": "33e6668b-818e-41ec-a148-1ad43bbb9705",
+            "accessRoles": null,
+            "events": [
+              {
+                "name": "$onPageLoad",
+                "eventSelection": "BIND_EVENT",
+                "id": "33e6668b-818e-41ec-a148-1ad43bbb9705",
+                "handlers": [
+                  "refresh"
+                ],
+                "handlerArgs": [
+                  {}
+                ],
+                "preHandlers": [],
+                "preHandlerArgs": []
+              }
+            ],
+            "datasource": {
+              "name": "payroll_approval_declined_count_kpi",
+              "type": "view",
+              "isReadOnly": true,
+              "schema": "$framework",
+              "seriesColors": {}
+            },
+            "pagination": {
+              "currentPage": 1,
+              "totalItems": null,
+              "itemsPerPage": 200
+            },
+            "columns": [],
+            "titleText": "Declined",
+            "subtitleText": "",
+            "icon": "Arrow Down",
+            "data": "",
+            "column": "count_all",
+            "layoutSize": 25
+          },
+          "control_139": {
+            "type": "table",
+            "controlId": "8310285f-bed9-4bfd-9851-ec34a0da9e9b",
+            "accessRoles": null,
+            "events": [
+              {
+                "name": "$onPageLoad",
+                "eventSelection": "BIND_EVENT",
+                "id": "8310285f-bed9-4bfd-9851-ec34a0da9e9b",
+                "handlers": [
+                  "refresh"
+                ],
+                "handlerArgs": [
+                  {}
+                ],
+                "preHandlers": [],
+                "preHandlerArgs": []
+              }
+            ],
+            "datasource": {
+              "name": "payroll_approval_status",
+              "type": "table",
+              "isReadOnly": false,
+              "schema": "$framework",
+              "seriesColors": {}
+            },
+            "pagination": {
+              "currentPage": 1,
+              "totalItems": null,
+              "itemsPerPage": 200
+            },
+            "columns": [
+              {
+                "field": "period_name",
+                "name": "period_name",
+                "headerName": "Period",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "manager_name",
+                "name": "manager_name",
+                "headerName": "Manager",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "status",
+                "name": "status",
+                "headerName": "Status",
+                "dataType": "string",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              },
+              {
+                "field": "status_date",
+                "name": "status_date",
+                "headerName": "Status Date",
+                "dataType": "date",
+                "editable": false,
+                "isPrimaryKey": false,
+                "formattingStyle": "default"
+              }
+            ],
+            "variables": [],
+            "table": "grid",
+            "title": ""
+          }
+        }
       }
     }
   },
