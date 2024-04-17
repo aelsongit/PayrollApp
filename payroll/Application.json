@@ -1,0 +1,12 @@
+[
+  {
+    "accessRoles": [],
+    "applicationId": "0d41159f-6fb9-4f36-85f1-1a806039351f",
+    "applicationName": "payroll_GitConnectedapp",
+    "applicationState": "DRAFT",
+    "defaultBranch": "main",
+    "gitSubpath": "payroll",
+    "gitUrl": "https://github.com/aelsongit/PayrollApp",
+    "sections": []
+  }
+]
