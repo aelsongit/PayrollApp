@@ -18,20 +18,20 @@
         "privileges": null
       },
       {
+        "name": "Payments Dashboard",
+        "icon": "View",
+        "pageDefinitionId": "43c40b4d-18c5-4a2c-9802-4f257f2e2455",
+        "sections": [],
+        "accessRoles": null,
+        "privileges": null
+      },
+      {
         "name": "Payee Commissions",
         "icon": "Alert Circle",
         "pageDefinitionId": "ef8a40d9-7e65-482a-956a-75402119102d",
         "sections": [],
         "accessRoles": null,
         "privileges": null
-      },
-      {
-        "accessRoles": null,
-        "privileges": null,
-        "name": "Payments Dashboard",
-        "icon": "View",
-        "pageDefinitionId": "43c40b4d-18c5-4a2c-9802-4f257f2e2455",
-        "sections": []
       }
     ]
   }
